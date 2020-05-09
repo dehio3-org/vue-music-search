@@ -7,7 +7,7 @@
       </v-col>
 
       <v-col v-for="(album, i) in albums" :key="i" cols="12">
-        <v-card color="#385F73" dark :href="album.artistViewUrl">
+        <v-card color="#385F73" dark :href="album.collectionViewUrl">
           <div class="d-flex flex-no-wrap justify-space-between">
             <div>
               <v-card-title class="headline" v-text="album.collectionName"></v-card-title>
