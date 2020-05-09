@@ -31,12 +31,14 @@ jobs:
           ${{ runner.os }}-
 
     - name: install
-      run: npm install
+      run: | 
+        npm install yarn
+        yarn install
 
     - name: build
       run: |
         env
-        npm run build
+        yarn build
 
     - name: Deploy
       uses: peaceiris/actions-gh-pages@v3
