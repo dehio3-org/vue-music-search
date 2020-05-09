@@ -40,3 +40,13 @@ Vue CLI v4.3.1
 ? Save this as a preset for future projects? No
 ? Pick the package manager to use when installing dependencies: Yarn
 ```
+
+## add packages
+```bash
+### axios
+yarn add axios
+
+### vuetify
+❯ vue add vuetify
+? Choose a preset: Default (recommended)
+```
