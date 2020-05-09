@@ -3,7 +3,7 @@
     <v-app-bar app color="pink" dark>
       <v-spacer>MUSIC SEARCH</v-spacer>
 
-      <v-btn href="https://github.com/vuetifyjs/vuetify/releases/latest" target="_blank" text>
+      <v-btn test to="/">
         <span class="mr-2">HOME</span>
         <v-icon>mdi-open-in-new</v-icon>
       </v-btn>

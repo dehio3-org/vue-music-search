@@ -6,29 +6,16 @@
         <p>検索キーワード：{{ $route.params.keyword }}</p>
       </v-col>
 
-      <v-col cols="12">
-        <v-card color="#385F73" dark>
-          <v-card-title class="headline" v-text="title"></v-card-title>
-
-          <v-card-subtitle v-text="artistName"></v-card-subtitle>
-
-          <v-card-actions>
-            <v-btn text>Listen Now</v-btn>
-          </v-card-actions>
-        </v-card>
-      </v-col>
-
-      <v-col v-for="(item, i) in items" :key="i" cols="12">
-        <v-card :color="item.color" dark>
+      <v-col v-for="(album, i) in albums" :key="i" cols="12">
+        <v-card color="#385F73" dark :href="album.artistViewUrl">
           <div class="d-flex flex-no-wrap justify-space-between">
             <div>
-              <v-card-title class="headline" v-text="item.title"></v-card-title>
-
-              <v-card-subtitle v-text="item.artist"></v-card-subtitle>
+              <v-card-title class="headline" v-text="album.collectionName"></v-card-title>
+              <v-card-subtitle v-text="album.artistName"></v-card-subtitle>
             </div>
 
             <v-avatar class="ma-3" size="125" tile>
-              <v-img :src="item.src"></v-img>
+              <v-img :src="album.artworkUrl100"></v-img>
             </v-avatar>
           </div>
         </v-card>
@@ -38,13 +25,24 @@
 </template>
 
 <script>
+import axios from "axios";
+
 export default {
   data() {
     return {
-      title: "アルバムタイトル",
-      artistName: "アーティスト名",
-      image: ""
+      albums: []
     };
+  },
+  created() {
+    const vm = this;
+    axios
+      .get(
+        `https://itunes.apple.com/search?term=${this.$route.params.keyword}&entity=album`
+      )
+      .then(response => {
+        console.log(response);
+        vm.albums = response.data.results;
+      });
   }
 };
 </script>
