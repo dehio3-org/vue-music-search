@@ -37,7 +37,7 @@ export default {
     const vm = this;
     axios
       .get(
-        `https://itunes.apple.com/search?term=${this.$route.params.keyword}&entity=album`
+        `/search?term=${this.$route.params.keyword}&entity=album`
       )
       .then(response => {
         console.log(response);
