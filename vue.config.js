@@ -4,6 +4,11 @@ module.exports = {
   ],
   publicPath: '/' + process.env.GITHUB_REPOSITORY.split('/')[1],
   devServer: {
-    proxy: 'https://itunes.apple.com'
+    proxy: {
+      "/search": {
+        target: 'https://itunes.apple.com',
+        secure: false
+      }
+    }
   }
 }
