@@ -36,9 +36,13 @@ export default {
   created() {
     const vm = this;
     axios
-      .get(
-        `/search?term=${this.$route.params.keyword}&entity=album`
-      )
+      .get("https://itunes.apple.com/search", {
+        withCredentials: true,
+        params: {
+          term: this.$route.params.keyword,
+          entity: "album"
+        }
+      })
       .then(response => {
         console.log(response);
         vm.albums = response.data.results;
