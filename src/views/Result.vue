@@ -36,7 +36,7 @@ export default {
   created() {
     const vm = this;
     axios
-      .get("/itunes/search", {
+      .get("https://itunes.apple.com/search", {
         withCredentials: true,
         params: {
           term: this.$route.params.keyword,
